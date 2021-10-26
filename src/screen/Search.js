@@ -9,7 +9,6 @@ import {
   Keyboard,
 } from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
-
 const Search = ({navigation}) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    borderRadius: 10,
+    borderRadius: 3,
     backgroundColor: '#6d6e6f',
     marginLeft: 45,
   },
@@ -73,13 +72,11 @@ const styles = StyleSheet.create({
   },
   box: {
     flex: 1,
-    width: '50%',
+    width: 400,
     height: 45,
     backgroundColor: '#6d6e6f',
     marginTop: 10,
-    borderRadius: 10,
-    marginLeft: 15,
-    marginRight: 15,
+    borderRadius: 3,
   },
 
   titleBack: {
@@ -89,5 +86,4 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
-
 export default Search;

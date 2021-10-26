@@ -15,6 +15,7 @@ import Search from './src/screen/Search';
 import {createStackNavigator} from '@react-navigation/stack';
 import Profile from './src/screen/Profile';
 import HomeStack from './src/routes/HomeStack';
+import Register from './src/screen/Register';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -30,7 +31,8 @@ const App = () => {
           headerShown: false,
         }}>
         {/* <BottomTabs /> */}
-        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Screen name="profile" component={Profile} />
         <Stack.Screen name="HomeStack" component={HomeStack} />
