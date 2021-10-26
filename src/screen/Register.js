@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -8,26 +8,9 @@ import {
   Keyboard,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Alert,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/AntDesign';
-
-const Divider = props => {
-  return (
-    <View {...props}>
-      <View style={styles.line} />
-      <Text style={styles.textOR}>OR</Text>
-      <View style={styles.line} />
-    </View>
-  );
-};
-
-const Login = ({navigation}) => {
-  const [mail, setMail] = useState('');
-  const [pass, setPass] = useState('');
-  const [isSecureEntry, setIsSecureEntry] = useState(true);
-  const [logincheck, setLogin] = useState(false);
+const Register = ({navigation}) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
@@ -42,11 +25,17 @@ const Login = ({navigation}) => {
           <View style={styles.textInputContainer}>
             <TextInput
               style={styles.textInput}
+              textContentType="username"
+              placeholder="Enter your full name"
+            />
+          </View>
+
+          <View style={styles.textInputContainer}>
+            <TextInput
+              style={styles.textInput}
               textContentType="emailAddress"
               keyboardType="email-address"
               placeholder="Enter your email"
-              onChangeText={mail => setMail(mail)}
-              defaultValue={mail}
             />
           </View>
 
@@ -54,49 +43,19 @@ const Login = ({navigation}) => {
             <TextInput
               style={styles.textInput}
               placeholder="Enter your password"
-              secureTextEntry={isSecureEntry}
-              onChangeText={pass => setPass(pass)}
-              defaultValue={pass}
             />
           </View>
+
+          <TouchableOpacity style={styles.registerButton}>
+            <Text style={styles.registerButtonTitle}>REGISTER</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.loginButton}
             onPress={() => {
-              if (
-                account[0]['user'] == mail &&
-                account[0]['password'] == pass
-              ) {
-                navigation.navigate('BottomTabs');
-                setLogin(!logincheck);
-              } else {
-                Alert.alert('invalid!!!');
-              }
+              navigation.navigate('Login');
             }}>
-            {/* chuyen den BottomTab */}
-
             <Text style={styles.loginButtonTitle}>LOGIN</Text>
           </TouchableOpacity>
-
-          <Divider style={styles.divider} />
-
-          <TouchableOpacity style={styles.facebookButton}>
-            <Icon
-              name="facebook-square"
-              size={40}
-              style={styles.logoFacebook}
-            />
-            <Text style={styles.facebookButtonTitle}>Login with facebook</Text>
-          </TouchableOpacity>
-          <View style={styles.registerForm}>
-            <Text>Need a new account?</Text>
-            <TouchableOpacity
-              style={styles.registerButton}
-              onPress={() => {
-                navigation.navigate('Register');
-              }}>
-              <Text style={styles.registerText}>Register</Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -158,6 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgb(221, 97, 97)',
+    marginTop: 20,
   },
 
   loginButtonTitle: {
@@ -165,7 +125,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
-  facebookButtonTitle: {
+  registerButtonTitle: {
     fontSize: 18,
     color: 'white',
     justifyContent: 'center',
@@ -173,13 +133,7 @@ const styles = StyleSheet.create({
     // marginLeft: 40
   },
 
-  logoFacebook: {
-    justifyContent: 'space-between',
-    left: 10,
-    position: 'absolute',
-  },
-
-  facebookButton: {
+  registerButton: {
     flexDirection: 'row',
     width: 300,
     height: 45,
@@ -187,6 +141,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#4267B2',
+    marginTop: 20,
   },
 
   line: {
@@ -209,28 +164,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  registerForm: {
-    flexDirection: 'row',
-    marginTop: 5,
-  },
-
-  registerButton: {
-    marginLeft: 80,
-  },
-  registerText: {
-    color: 'blue',
-  },
 });
 
-const account = [
-  {
-    user: 'admin',
-    password: 'admin',
-  },
-  {
-    user: 'hoang',
-    password: 'hoang',
-  },
-];
-export default Login;
+export default Register;
