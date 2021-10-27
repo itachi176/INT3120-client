@@ -10,8 +10,8 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from 'react-native';
-
 import Icon from 'react-native-vector-icons/AntDesign';
+import {LoginManager} from 'react-native-fbsdk';
 
 const Divider = props => {
   return (
@@ -79,7 +79,23 @@ const Login = ({navigation}) => {
 
           <Divider style={styles.divider} />
 
-          <TouchableOpacity style={styles.facebookButton}>
+          <TouchableOpacity
+            style={styles.facebookButton}
+            onPress={async () => {
+              try {
+                let result = await LoginManager.logInWithPermissions([
+                  'public_profile',
+                ]);
+                if (result.isCancelled) {
+                  Alert.alert('login was cancelled');
+                } else {
+                  navigation.navigate('BottomTabs');
+                }
+              } catch (error) {
+                Alert.alert('loi:' + error);
+                console.log(error);
+              }
+            }}>
             <Icon
               name="facebook-square"
               size={40}

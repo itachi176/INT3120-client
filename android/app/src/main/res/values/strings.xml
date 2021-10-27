@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">BTL</string>
     <string name="content_description">Splash Screen</string>
+    <string name="facebook_app_id">1060801821423678</string>
+    <string name="fb_login_protocol_scheme">fb1060801821423678</string>
 </resources>
