@@ -12,7 +12,9 @@
   https://github.com/typicode/json-server
 
 - "react-native-paper":
-  https://callstack.github.io/react-native-paper/getting-started.html <br/>
+  https://callstack.github.io/react-native-paper/getting-started.html
+ - react-native-fbsdk: "^3.0.0":
+  https://developers.facebook.com/apps/1060801821423678/fb-login/quickstart/<br/>
 
 Tên icon: https://oblador.github.io/react-native-vector-icons/ <br />
 Hiện dùng: Material, Ant Design, Font Awesome 5
